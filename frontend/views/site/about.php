@@ -21,14 +21,14 @@ $this->params['breadcrumbs'][] = $this->title;
 		    </tr>
 		  </thead>
 		  <tbody>
-		    <? foreach ($cars as $car):?>
+		    <?php foreach ($cars as $car):?>
 		  		<tr>
 		  			<td><?php $car->id;?></td>
 		  			<td><?php $car->make;?></td>
 		  			<td><?php $car->model;?></td>
 		  			<td><?php $car->price;?></td>
 		  		</tr>
-		  	<? endforeach;?>
+		  	<?php endforeach;?>
 		  </tbody>
 		</table>
 		<?php
