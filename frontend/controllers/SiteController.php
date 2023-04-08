@@ -139,7 +139,7 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        $model = Car::find()->orderBy(['id'=> SORT_DESC]);
+        $model = Car::find();
 
         $pagination = new Pagination(
             [
