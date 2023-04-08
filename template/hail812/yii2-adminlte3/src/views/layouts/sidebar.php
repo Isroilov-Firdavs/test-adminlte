@@ -53,7 +53,6 @@
                     ['label' => 'MULTI LEVEL EXAMPLE', 'header' => true],
                     // ['label' => 'Level222'],
                     ['label' => 'About', 'url' => ['site/about']],
-                    ['label' => 'Car', 'url' => ['car/index']],
                     [
                         'label' => 'Level1',
                         'items' => [
