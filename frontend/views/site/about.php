@@ -23,10 +23,10 @@ $this->params['breadcrumbs'][] = $this->title;
 		  <tbody>
 		    <?php foreach ($cars as $car):?>
 		  		<tr>
-		  			<td><?=$car->id;?></td>
-		  			<td><?=$car->make;?></td>
-		  			<td><?=$car->model;?></td>
-		  			<td><?=$car->price;?></td>
+		  			<td><?=$car['id'];?></td>
+		  			<td><?=$car['make'];?></td>
+		  			<td><?=$car['model'];?></td>
+		  			<td><?=$car['price'];?></td>
 		  		</tr>
 		  	<?php endforeach;?>
 		  </tbody>
