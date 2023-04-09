@@ -17,6 +17,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\Car;
+use frontend\models\User;
 
 /**
  * Site controller
@@ -31,7 +32,7 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::class,
-                'only' => ['logout', 'signup', 'index', 'about', 'contact', 'error'],
+                'only' => ['logout', 'signup', 'index', 'about', 'contact', 'error', 'form'],
                 'rules' => [
                     [
                         'actions' => ['signup', 'error'],
@@ -39,7 +40,7 @@ class SiteController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout', 'index', 'about', 'contact'],
+                        'actions' => ['logout', 'index', 'about', 'contact', 'form'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -71,7 +72,37 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $car_count = Car::find()->count();
+        $user_count = User::find()->count();
+        return $this->render('index', [
+            'car_count' => $car_count,
+            'user_count' => $user_count
+        ]);
+    }
+
+    public function actionDelete($id)
+    {
+        $model = Car::findOne($id)->delete();
+        return $this->redirect(Yii::$app->request->referrer);
+    }
+
+
+
+    
+    public function actionForm()
+    {
+        $model = new Car();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->validate()) {
+                $model->save();
+                return $this->redirect(['/site/about']);
+            }
+        }
+
+        return $this->render('form', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -139,7 +170,7 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        $model = Car::find();
+        $model = Car::find()->orderBy(['id'=> SORT_DESC]);
 
         $pagination = new Pagination(
             [

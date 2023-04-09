@@ -52,6 +52,7 @@
                     // ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug'], 'target' => '_blank'],
                     ['label' => 'MULTI LEVEL EXAMPLE', 'header' => true],
                     // ['label' => 'Level222'],
+                    ['label' => 'Create car', 'url' => ['site/form']],
                     ['label' => 'About', 'url' => ['site/about']],
                     [
                         'label' => 'Level1',
