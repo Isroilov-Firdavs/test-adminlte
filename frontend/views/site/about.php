@@ -11,20 +11,6 @@ $this->title = 'Cars page';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="container-fluid">
-	<?php
-
-	Modal::begin([
-		'title' => '<h2>Create car</h2>',
-		'toggleButton' => ['label' => 'Create Car', 'class' => 'btn btn-info'],
-	]);?>
-	<input type="text" id="model" class="form-control mt-2" placeholder="Model">
-	<input type="text" id="make" class="form-control mt-2" placeholder="Make">
-	<input type="number" id="price" class="form-control mt-2" placeholder="Price">
-	<input type="submit" id="btn-car" class="btn btn-success form-control mt-2">
-	<?php
-	Modal::end();
-
-	?>
     <div class="row">
         <div class="col-lg-10 offset-lg-1">
         <table class="table table-bordered">
@@ -53,8 +39,6 @@ $this->params['breadcrumbs'][] = $this->title;
 	          echo \yii\bootstrap5\LinkPager::widget(
 	      [
 	      'pagination' => $pagination,
-		  'prevPageLabel' => '&laquo; назад',
-         'nextPageLabel' => 'далее &raquo;',
 	      ])
 	    ?>
         </div>

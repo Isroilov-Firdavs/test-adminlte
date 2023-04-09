@@ -106,3 +106,8 @@ a.desc:after {
 {
     text-decoration: none;
 }
+
+
+.a-tag a{
+    color: black;
+}

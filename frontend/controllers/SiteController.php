@@ -72,11 +72,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $car_count = Car::find()->count();
-        $user_count = User::find()->count();
+        $user = User::find()->all();
         return $this->render('index', [
-            'car_count' => $car_count,
-            'user_count' => $user_count
+            'user' => $user
         ]);
     }
 
